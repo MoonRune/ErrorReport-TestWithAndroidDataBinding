@@ -3,6 +3,7 @@ package net.unknown.baziii.testindatabinding;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v8.renderscript.RenderScript;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -13,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     net.unknown.baziii.testindatabinding.ViewModeBinding binding =
         DataBindingUtil.setContentView(this, R.layout.activity_main);
     binding.setViewmodel(new net.unknown.baziii.testindatabinding.ViewMode("welcome"));
+
+
+    RenderScript renderScript = RenderScript.create(this);
+    ScriptC_saturation   mScript=new ScriptC_saturation(renderScript);
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
